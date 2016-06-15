@@ -1,0 +1,63 @@
+/* This lets us set widths without having to recalculate
+   for the padding */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: green 0px 4px 10px;
+}
+
+nav {
+  text-align: right;
+  padding: 15px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  color: black;
+}
+
+article, aside {
+  display: inline-block;
+  vertical-align: top;
+}
+
+article {
+  width: 75%;
+  background-color: #c6c2c2;
+  border-radius: 1em;
+  padding: 1em;
+  margin-right: 1em;
+}
+
+aside {
+  width: 22%;
+}
+
+aside div {
+  text-align: justify;
+}
+
+aside h3, aside h4 {
+  text-align: center;
+}
+
+footer {
+  text-align: right;
+}
