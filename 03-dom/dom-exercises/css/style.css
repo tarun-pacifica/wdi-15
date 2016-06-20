@@ -1,0 +1,8 @@
+.listitem {
+  color: red;
+}
+
+.read {
+  opacity: 0.5;
+  font-style: italic;
+}
