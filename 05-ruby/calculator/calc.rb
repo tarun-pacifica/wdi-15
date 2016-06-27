@@ -10,7 +10,9 @@ def menu
 end
 
 def add
-  puts "Addition is coming soon"
+  a = prompt('Enter your first number: ').to_f
+  b = prompt('Enter your second number: ').to_f
+  puts "#{ a } + #{ b } is #{ a + b }"
 end
 
 menu_selection = menu
@@ -28,4 +30,4 @@ until menu_selection == 'q'
   menu_selection = menu
 end
 
-puts "Thank you for using this crappy calculator"
+puts "Thank you for using this crappy calculator."
