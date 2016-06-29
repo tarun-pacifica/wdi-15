@@ -1,0 +1,13 @@
+<% if @result %>
+  <p>The first number: <%= @first %></p>
+  <p><%= params[:operator] %></p>
+  <p>The second number: <%= @second %></p>
+  <p>The result: <%= @result %></p>
+<% end %>
+
+<form action="/result" method="get">
+  <input type="number" name="first" placeholder="First number">
+  <input type="text" name="operator" placeholder="Operator: + - * /">
+  <input type="number" name="second" placeholder="Second number">
+  <button>Calculate</button>
+</form>
