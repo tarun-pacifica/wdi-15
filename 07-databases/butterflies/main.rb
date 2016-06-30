@@ -30,6 +30,26 @@ get '/butterflies/:id' do
   erb :butterflies_show
 end
 
+# Edit
+get '/butterflies/:id/edit' do
+  @butterfly = query_db "SELECT * FROM butterflies WHERE id = #{ params[:id] }"
+  @butterfly = @butterfly.first # Extract the butterfly hash from the array
+  erb :butterflies_edit
+end
+
+# Update
+post '/butterflies/:id' do
+  query = "UPDATE butterflies SET name='#{ params[:name] }', family='#{ params[:family] }', image='#{ params[:image] }' WHERE id=#{ params[:id] }"
+  query_db query
+  redirect to('/butterflies/' + params[:id])
+end
+
+# Delete
+get '/butterflies/:id/delete' do
+  query_db "DELETE FROM butterflies WHERE id = #{ params[:id] }"
+  redirect to('/butterflies')
+end
+
 def query_db(sql)
   db = SQLite3::Database.new 'database.db' # Establish connection to the database
   db.results_as_hash = true
