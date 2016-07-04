@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockMovies</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/stock">Stock</a>
+  <a href="/movie">Movie</a>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
