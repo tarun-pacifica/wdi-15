@@ -1,0 +1,29 @@
+<%= form_for @artist do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :dob, 'Date of birth' %>
+    <%= f.text_field :dob, :placeholder => '1970-1-25', :required => true %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :period %>
+    <%= f.text_field :period %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

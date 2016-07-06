@@ -1,3 +1,13 @@
 .thumb {
   max-width: 12em;
 }
+
+.feature {
+  max-width: 35%;
+}
+
+label {
+  display: inline-block;
+  min-width: 85px;
+  text-align: right;
+}

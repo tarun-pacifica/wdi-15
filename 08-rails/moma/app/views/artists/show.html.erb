@@ -1,2 +1,13 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1><%= @artist.name %></h1>
+<%= image_tag @artist.image, :class => 'feature' %>
+<ul>
+  <li><%= @artist.nationality %></li>
+  <li><%= @artist.dob.strftime '%A %B %e, %Y' if @artist.dob %></li>
+  <li><%= @artist.period %></li>
+</ul>
+
+<div class="controls">
+  <!-- This is morally wrong -->
+  <%= link_to 'Edit', edit_artist_path(@artist) %>
+  <%= link_to 'Delete', @artist, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+</div>
