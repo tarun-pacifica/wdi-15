@@ -11,9 +11,11 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
 class Butterfly < ActiveRecord::Base
+  belongs_to :plant
 end
 
 class Plant < ActiveRecord::Base
+  has_many :butterflies
 end
 
 get '/' do
@@ -35,6 +37,7 @@ post '/butterflies' do
   butterfly.name = params[:name]
   butterfly.family = params[:family]
   butterfly.image = params[:image]
+  butterfly.plant_id = params[:plant_id]
   butterfly.save
   redirect to("/butterflies/#{ butterfly.id }")
 end
@@ -57,6 +60,7 @@ post '/butterflies/:id' do
   butterfly.name = params[:name]
   butterfly.family = params[:family]
   butterfly.image = params[:image]
+  butterfly.plant_id = params[:plant_id]
   butterfly.save
   redirect to('/butterflies/' + params[:id])
 end

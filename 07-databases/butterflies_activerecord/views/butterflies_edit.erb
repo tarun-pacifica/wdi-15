@@ -3,5 +3,13 @@
   <input type="text" name="name" placeholder="Name" value="<%= @butterfly['name'] %>">
   <input type="text" name="family" placeholder="Family" value="<%= @butterfly['family'] %>">
   <input type="url" name="image" placeholder="Image" value="<%= @butterfly['image'] %>">
+  <select name="plant_id" id="">
+    <option></option>
+    <% Plant.all.each do |plant| %>
+      <option value="<%= plant.id %>" <%= 'selected' if @butterfly.plant_id == plant.id %> >
+        <%= plant.name %>
+      </option>
+    <% end %>
+  </select>
   <button>Update butterfly</button>
 </form>

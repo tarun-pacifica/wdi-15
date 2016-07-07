@@ -6,6 +6,10 @@
   <li><%= @artist.period %></li>
 </ul>
 
+<% @artist.works.each do |work| %>
+  <%= link_to image_tag(work.image, :class => :thumb), work %>
+<% end %>
+
 <div class="controls">
   <!-- This is morally wrong -->
   <%= link_to 'Edit', edit_artist_path(@artist) %>

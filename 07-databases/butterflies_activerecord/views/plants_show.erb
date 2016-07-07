@@ -2,6 +2,15 @@
 
 <img class="feature" src="<%= @plant['image'] %>">
 
+<% if @plant.butterflies.any? %>
+  <h2>Butterflies</h2>
+  <ul>
+    <% @plant.butterflies.each do |butterfly| %>
+      <li><a href="/butterflies/<%= butterfly.id %>"><%= butterfly.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="controls">
   <a href="/plants/<%= @plant['id'] %>/edit">Edit</a>
   <a href="/plants/<%= @plant['id'] %>/delete">Delete</a>
