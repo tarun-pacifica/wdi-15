@@ -1,6 +1,7 @@
 <h1><%= @work.title %></h1>
 <%= image_tag @work.image, :class => :feature %>
 <ul>
+  <li><%= link_to @work.artist.name, @work.artist if @work.artist %></li>
   <li><%= @work.year %></li>
   <li><%= @work.medium %></li>
   <li><%= @work.style %></li>
