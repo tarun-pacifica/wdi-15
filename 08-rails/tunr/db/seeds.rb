@@ -1,8 +1,8 @@
 
 User.destroy_all
-u1 = User.create(:email => "The_Blade_420@homebrew.com")
-u2 = User.create(:email => "Badger@badger.com")
-u3 = User.create(:email => "Wolf@wolf.com")
+u1 = User.create(:email => "The_Blade_420@homebrew.com", :password => 'chicken')
+u2 = User.create(:email => "Badger@badger.com", :password => 'chicken')
+u3 = User.create(:email => "Wolf@wolf.com", :password => 'chicken')
 
 Song.destroy_all
 s1 = Song.create(:name => "All Along The Watchtower")
