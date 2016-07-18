@@ -1,16 +1,3 @@
-// var xhr = new XMLHttpRequest();
-// xhr.open('GET', '/bros');
-// xhr.onreadystatechange = function () {
-//   console.log('ready state changed', xhr.readyState, xhr.responseText);
-//
-//   if (xhr.readyState !== 4) {
-//     return;
-//   }
-//
-//   $('h1').text(xhr.responseText);
-// };
-// xhr.send(); // THIS LINE IS ASYNCHRONOUS
-
 $(document).ready(function () {
   $('#fetchLotto').on('click', function () {
     var xhr = new XMLHttpRequest(); // Instantiate our AJAX request object.
