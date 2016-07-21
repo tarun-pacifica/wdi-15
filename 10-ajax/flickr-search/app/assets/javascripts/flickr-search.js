@@ -2,8 +2,7 @@ $(document).ready(function () {
 
   var settings = {
     currentPage: 1,
-    endReached: false,
-    requestInProgress: false
+    endReached: false
   };
 
   var searchFlickr = function () {
@@ -15,8 +14,6 @@ $(document).ready(function () {
     var query = $('#query').val();
 
     var flickrURL = 'https://api.flickr.com/services/rest/?jsoncallback=?';
-
-    settings.requestInProgress = true;
 
     console.log('searching flickr for', query, 'current page', settings.currentPage);
 
@@ -36,7 +33,6 @@ $(document).ready(function () {
           src: url
         }).appendTo('#results');
       });
-      settings.requestInProgress = false;
     });
   };
 
@@ -61,14 +57,15 @@ $(document).ready(function () {
     searchFlickr();
   });
 
+  var searchFlickrThrottled = _.throttle(searchFlickr, 5000, {trailing: false});
+
   $(window).on('scroll', function () {
     var scrollTop = $(window).scrollTop();
     var windowHeight = $(window).height();
     var documentHeight = $(document).height();
 
-    if (settings.requestInProgress === false &&
-        scrollTop + windowHeight > 0.8 * documentHeight) {
-      searchFlickr();
+    if (scrollTop + windowHeight > 0.8 * documentHeight) {
+      searchFlickrThrottled();
     }
 
   });
