@@ -39,7 +39,7 @@ var AppView = Backbone.View.extend({
     var content = $('#appView').html();
     this.$el.html( content );
     this.collection.each(function (p) {
-      var postListView = new PostListView({ model: p});
+      var postListView = new PostListView({ model: p });
       postListView.render();
     });
   }
@@ -55,18 +55,33 @@ var PostListView = Backbone.View.extend({
     this.$el.appendTo('#posts');
   },
   navigateToPost: function () {
-    console.log('you clicked a post', this.model);
+    router.navigate('posts/' + this.model.get('id'), true); // The true tells the router to obey this change in the route
+  }
+});
+
+var PostView = Backbone.View.extend({
+  el: '#main',
+  render: function () {
+    var postViewTemplate = $('#postView').html();
+    var postViewTemplater = _.template(postViewTemplate);
+    this.$el.html( postViewTemplater( this.model.toJSON() ) );
   }
 });
 
 // Equivalent to routes.rb
 var AppRouter = Backbone.Router.extend({
   routes: {
-    '': 'index' // Home page
+    '': 'index', // Home page
+    'posts/:id': 'showPost'
   },
   index: function () {
     var appView = new AppView({collection: blog});
     appView.render();
+  },
+  showPost: function (id) {
+    var post = blog.get(id); // equivalent to Rails .find in AR
+    var postView = new PostView({model: post});
+    postView.render();
   }
 });
 
