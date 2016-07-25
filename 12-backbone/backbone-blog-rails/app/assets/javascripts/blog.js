@@ -14,8 +14,8 @@ $(document).ready(function () { // Wait until the document has finished loading
   if ( $('#main').length === 0 ) { return; }
 
   app.blog = new app.Posts(); // Instantiate our new empty collection of posts
-  app.blog.fetch().done(function () { // Which we need to fetch from the server
-    // We are guaranteed to have all our posts loaded from the server before we start the router
-    Backbone.history.start(); // Starts the router
+  app.blog.fetch().done(function () {
+    Backbone.history.start({ pushState: false /* Modernizr.history */ }); // Starts the router
   });
+
 });
