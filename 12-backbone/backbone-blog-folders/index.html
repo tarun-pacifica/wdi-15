@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backbone Blog</title>
+  <script src="js/underscore.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/models/Post.js"></script>
+  <script src="js/collections/Posts.js"></script>
+  <script src="js/views/AppView.js"></script>
+  <script src="js/views/PostListView.js"></script>
+  <script src="js/views/PostView.js"></script>
+  <script src="js/routers/AppRouter.js"></script>
+  <script src="js/blog.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+  </nav>
+  <div id="main"></div>
+
+  <!-- We are hiding our _.template "templates" in script tags -->
+  <script id="appView" type="text/template">
+    <h1>Badger's Blog With All My Precious Princess Feelings</h1>
+    <ul id="posts"></ul>
+  </script>
+
+  <script id="postView" type="text/template">
+    <h1><%= title %></h1>
+    <h2>By: <%= author %></h2>
+    <p><%= content %></p>
+  </script>
+</body>
+</html>
