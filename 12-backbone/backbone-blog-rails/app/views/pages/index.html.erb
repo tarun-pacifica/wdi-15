@@ -1,0 +1,17 @@
+<nav>
+  <a href="#">Home</a>
+</nav>
+
+<div id="main"></div>
+
+<!-- We are hiding our _.template "templates" in script tags -->
+<script id="appView" type="text/template">
+  <h1>Badger's Blog With All My Precious Princess Feelings</h1>
+  <ul id="posts"></ul>
+</script>
+
+<script id="postView" type="text/template">
+  <h1>{{= title }}</h1>
+  <h2>By: {{= author }}</h2>
+  <p>{{= content }}</p>
+</script>
