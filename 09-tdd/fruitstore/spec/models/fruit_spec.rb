@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Fruit, type: :model do
-  # it { should belong_to(:shelf) }
+  # it { is_expected.to belong_to(:shelf) }
 
   describe 'an apple' do
     before do
