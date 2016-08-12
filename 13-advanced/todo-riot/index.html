@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/riot/2.5/riot+compiler.min.js"></script>
+</head>
+<body>
+
+  <todo></todo>
+
+  <script src="tags/todo.tag" type="riot/tag"></script>
+
+  <script>
+    riot.mount('todo', {
+      title: 'I love doing things',
+      items: [
+        { title: 'Drink coffee', done: true },
+        { title: 'Kill all humans', hidden: true },
+        { title: 'Experiment with Riot.js' },
+        { title: 'Weep for the future' }
+      ]
+    });
+  </script>
+
+</body>
+</html>
