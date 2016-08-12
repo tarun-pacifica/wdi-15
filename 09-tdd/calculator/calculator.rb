@@ -10,4 +10,8 @@ class Calculator
   def add
     @input.inject :+
   end
+
+  def subtract
+    @input.inject :-
+  end
 end
