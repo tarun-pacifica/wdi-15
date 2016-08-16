@@ -1,7 +1,8 @@
 body {
   background: url(http://fillmurray.com/1000/800);
   background-size: cover;
-  background-position: center;
+  background-position: 0 center;
+  background-attachment: fixed;
 }
 
 .container {
@@ -14,4 +15,12 @@ body {
 
 h1 {
   text-align: center;
+}
+
+.bubble {
+  background-color: lightblue;
+  opacity: 0.2;
+  position: absolute;
+  border: 2px solid blue;
+  border-radius: 100%;
 }
