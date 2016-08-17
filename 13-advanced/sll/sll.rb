@@ -1,5 +1,7 @@
 class SinglyLinkedList
 
+  include Enumerable # This is mixin
+
   attr_accessor :head
 
   def initialize(value=nil)
@@ -44,20 +46,26 @@ class SinglyLinkedList
   end
 
   def reverse
-    # Returns a new reversed list
+    reverse_list = SinglyLinkedList.new
+    node = @head
+    while node
+      reverse_list.prepend node.value
+      node = node.next
+    end
+    reverse_list
   end
 
   def reverse!
-    # Reverses the existing list
+    @head = reverse.head
   end
 
   def each
-  end
-
-  def map # Bonus
-  end
-
-  def reject # Bonus
+    node = @head
+    while node
+      yield node.value if block_given?
+      node = node.next
+    end
+    self
   end
 
   class Node
