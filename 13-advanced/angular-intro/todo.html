@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Todo Demo</title>
+  <link rel="stylesheet" href="css/todo.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="js/todo.js"></script>
+</head>
+<body>
+  <h2>Todo</h2>
+
+  <div ng-controller="TodoListController as todoList">
+    <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+    [ <a href="" ng-click="todoList.archive()">archive</a> ]
+    <ul>
+      <li ng-repeat="todo in todoList.todos">
+        <label>
+          <input type="checkbox" ng-model="todo.done">
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </label>
+      </li>
+    </ul>
+    <form ng-submit="todoList.addTodo()">
+      <input type="text" ng-model="todoList.todoText" size="30" placeholder="add new task">
+      <input type="submit" value="add">
+    </form>
+  </div>
+</body>
+</html>
